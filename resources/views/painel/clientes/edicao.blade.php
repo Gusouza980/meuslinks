@@ -627,7 +627,7 @@
                     
                     
                                         <tbody>
-                                            @foreach($cliente->elementos->sortByDesc("posicao") as $elemento)
+                                            @foreach($cliente->elementos->sortBy("posicao") as $elemento)
                                                 <tr>
                                                     <td style="width: 10%; text-align: center;"><img src="{{asset($elemento->imagem)}}" alt="" width="40"></td>
                                                     <td><a href="{{$elemento->link}}">{{$elemento->titulo }}</a></td>

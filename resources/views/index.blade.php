@@ -167,7 +167,7 @@
     <div class="container-fluid mt-5">
         <div class="row justify-content-center">
             <div class="col-12">
-                @foreach($cliente->elementos as $elemento)
+                @foreach($cliente->elementos->sortBy("posicao") as $elemento)
                     <div class="card-content mt-3">
                         <a href="{{$elemento->link}}" eid="{{$elemento->id}}" target="_blank" class="card-link">
                             <div class="row">
