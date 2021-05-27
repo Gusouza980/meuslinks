@@ -747,7 +747,7 @@
                     }
                 });  
                 $.ajax({
-                    url: '/dashboard/clientes/rede/' + id,
+                    url: '/sistema/clientes/rede/' + id,
                     type: 'POST',
                     data: {
                         name: name
