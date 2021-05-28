@@ -287,7 +287,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-12 text-center">
+                                <div class="col-12 col-md-6 text-center">
                                     <div class="row">
                                         <div class="col-12">
                                             <h4 class="card-title mb-4 mt-4">Imagem de Fundo</h4>
@@ -306,6 +306,28 @@
                                         <div class="col-12 text-center">
                                             <label class="btn btn-primary" for="fundo_getree-upload">Escolher</label>
                                             <input name="fundo" id="fundo_getree-upload" style="display: none;" type="file">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 text-center">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <h4 class="card-title mb-4 mt-4">Imagem de Fundo - Mobile</h4>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            @if($cliente->fundo_mobile)
+                                                <img id="fundo_getree_mobile-preview" src="{{asset($cliente->fundo_mobile)}}" style="max-height: 400px;" alt="">
+                                            @else
+                                                <img id="fundo_getree_mobile-preview" src="{{asset('admin/images/logos/padrao.png')}}" style="max-height: 400px;" alt="">
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-12 text-center">
+                                            <label class="btn btn-primary" for="fundo_getree_mobile-upload">Escolher</label>
+                                            <input name="fundo_mobile" id="fundo_getree_mobile-upload" style="display: none;" type="file">
                                         </div>
                                     </div>
                                 </div>
@@ -716,6 +738,16 @@
             var reader = new FileReader();
             reader.onload = function(){
                 document.getElementById('fundo_getree-preview').src = this.result;
+                };
+            reader.readAsDataURL(file);
+        },false);
+
+        var inp = document.getElementById('fundo_getree_mobile-upload');
+        inp.addEventListener('change', function(e){
+            var file = this.files[0];
+            var reader = new FileReader();
+            reader.onload = function(){
+                document.getElementById('fundo_getree_mobile-preview').src = this.result;
                 };
             reader.readAsDataURL(file);
         },false);

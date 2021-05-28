@@ -13,14 +13,29 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
-        body{
-            background-color: #E5E5E5;
-            background-image: url({{asset($cliente->fundo)}});
-            font-family: 'Montserrat', sans-serif;
-            background-size: cover;
-            background-repeat: no-repeat;
-            min-height: 100vh;
+        
+        @media only screen and (min-width: 768px){
+            body{
+                background-color: #E5E5E5;
+                background-image: url({{asset($cliente->fundo)}});
+                font-family: 'Montserrat', sans-serif;
+                background-size: cover;
+                background-repeat: no-repeat;
+                min-height: 100vh;
+            }
         }
+
+        @media only screen and (max-width: 767px){
+            body{
+                background-color: #E5E5E5;
+                background-image: url({{asset($cliente->fundo_mobile)}});
+                font-family: 'Montserrat', sans-serif;
+                background-size: cover;
+                background-repeat: no-repeat;
+                min-height: 100vh;
+            }
+        }
+        
 
         svg{
             height: 25px; 

@@ -177,6 +177,13 @@ class ClientesController extends Controller
             );
         }
 
+        if($request->file("fundo_mobile")){
+            Storage::delete($cliente->fundo_mobile);
+            $cliente->fundo_mobile = $request->file('fundo_mobile')->store(
+                'admin/images/rede/'.Str::slug($cliente->nome), 'local'
+            );
+        }
+
         foreach($cliente->getChanges() as $campo => $valor){
             if(!in_array($campo, ["updated_at"])){
                 Log::channel('cadastros')->info('<b>EDITANDO CLIENTE #' . $cliente->id . '</b>: O usuario <b>' . session()->get("usuario")["usuario"] . '</b> alterou o valor do campo <b>' . $campo . '</b> de <b>' . $old[$campo] . '</b> para <b>' . $valor . '</b>');
