@@ -177,12 +177,12 @@ class ClientesController extends Controller
             );
         }
 
-        // if($request->file("fundo_mobile")){
-        //     Storage::delete($cliente->fundo_mobile);
-        //     $cliente->fundo_mobile = $request->file('fundo_mobile')->store(
-        //         'admin/images/rede/'.Str::slug($cliente->nome), 'local'
-        //     );
-        // }
+        if($request->file("fundo_mobile")){
+            Storage::delete($cliente->fundo_mobile);
+            $cliente->fundo_mobile = $request->file('fundo_mobile')->store(
+                'admin/images/rede/'.Str::slug($cliente->nome), 'local'
+            );
+        }
 
         foreach($cliente->getChanges() as $campo => $valor){
             if(!in_array($campo, ["updated_at"])){

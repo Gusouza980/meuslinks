@@ -287,7 +287,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-12 text-center">
+                                <div class="col-12 col-xl-6 text-center">
                                     <div class="row">
                                         <div class="col-12">
                                             <h4 class="card-title mb-4 mt-4">Imagem de Fundo</h4>
@@ -309,7 +309,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                {{--  <div class="col-12 col-xl-6 mt-xl-0 mt-5 text-center">
+                                <div class="col-12 col-xl-6 mt-xl-0 mt-5 text-center">
                                     <div class="row">
                                         <div class="col-12">
                                             <h4 class="card-title mb-4 mt-4">Imagem de Fundo - Mobile</h4>
@@ -330,7 +330,7 @@
                                             <input name="fundo_mobile" id="fundo_getree_mobile-upload" style="display: none;" type="file">
                                         </div>
                                     </div>
-                                </div>  --}}
+                                </div>
                             </div>
                             <hr>
         
