@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Elementos;
+use App\Models\Lead;
 
 class ClientesController extends Controller
 {
@@ -372,5 +373,9 @@ class ClientesController extends Controller
             "dados" => $dados,
             "cliente" => $cliente,
         ]);
+    }
+
+    public function leads(Cliente $cliente){
+        return view("painel.leads.consultar", ["leads" => $cliente->leads]);
     }
 }

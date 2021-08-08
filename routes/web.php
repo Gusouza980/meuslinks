@@ -23,6 +23,9 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/sistema/inicio', [\App\Http\Controllers\PainelController::class, 'index'])->name("painel.index");
     Route::get('/sistema/sair', [\App\Http\Controllers\PainelController::class, 'sair'])->name("painel.sair");
 
+    //LEADS GERAIS
+    Route::get('/sistema/leads', [\App\Http\Controllers\PainelController::class, 'leads'])->name("painel.leads");
+    
     // ROTAS DE USUARIOS
     Route::get('/sistema/usuarios/cadastro', [\App\Http\Controllers\UsuariosController::class, 'cadastro'])->name("painel.usuario.cadastro");
     Route::post('/sistema/usuarios/cadastrar', [\App\Http\Controllers\UsuariosController::class, 'cadastrar'])->name("painel.usuario.cadastrar");
@@ -41,6 +44,7 @@ Route::middleware(['admin'])->group(function () {
     Route::post('/sistema/clientes/rede/adicionar/{cliente}', [\App\Http\Controllers\ClientesController::class, 'adicionar_rede'])->name("painel.cliente.rede.adicionar");
     Route::post('/sistema/clientes/rede/salvar/{elemento}', [\App\Http\Controllers\ClientesController::class, 'salvar_rede'])->name("painel.cliente.rede.salvar");
     Route::get('/sistema/clientes/rede/remover/{elemento}', [\App\Http\Controllers\ClientesController::class, 'remover_rede'])->name("painel.cliente.rede.remover");
+    Route::get('/sistema/clientes/leads/{cliente}', [\App\Http\Controllers\ClientesController::class, 'leads'])->name("painel.cliente.leads");
 
     // ROTA DE LOG
     Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');

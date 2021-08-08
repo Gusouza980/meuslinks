@@ -296,7 +296,7 @@
                                     <div class="row">
                                         <div class="col-12">
                                             @if($cliente->fundo)
-                                                <img id="fundo_getree-preview" src="{{asset($cliente->fundo)}}" style="max-height: 400px;" alt="">
+                                                <img id="fundo_getree-preview" src="{{asset($cliente->fundo)}}" style="max-width: 100%;" alt="">
                                             @else
                                                 <img id="fundo_getree-preview" src="{{asset('admin/images/logos/padrao.png')}}" style="max-height: 400px;" alt="">
                                             @endif
@@ -318,7 +318,7 @@
                                     <div class="row">
                                         <div class="col-12">
                                             @if($cliente->fundo_mobile)
-                                                <img id="fundo_getree_mobile-preview" src="{{asset($cliente->fundo_mobile)}}" style="max-height: 400px;" alt="">
+                                                <img id="fundo_getree_mobile-preview" src="{{asset($cliente->fundo_mobile)}}" style="max-width: 100%;" alt="">
                                             @else
                                                 <img id="fundo_getree_mobile-preview" src="{{asset('admin/images/logos/padrao.png')}}" style="max-height: 400px;" alt="">
                                             @endif
