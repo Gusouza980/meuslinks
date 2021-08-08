@@ -7,47 +7,43 @@
 @endsection
 
 @section('titulo')
-    Listagem de Clientes
-@endsection
-
-@section('botoes')
-<a name="" id="" class="btn btn-success" href="{{route('painel.cliente.cadastro')}}" role="button">Novo CLiente</a>
+    Leads
 @endsection
 
 @section('conteudo')
-<div class="row">
+<div class="row mt-3">
     <div class="col-12">
         <div class="card">
             <div class="card-body" style="overflow-x: scroll;">
                 <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                     <thead>
                         <tr>
+                            <th>Formulário</th>
                             <th>Nome</th>
                             <th>Email</th>
-                            <th>Telefone</th>
-                            <th>Proprietário</th>
-                            <th></th>
+                            <th>Celular</th>
+                            <th>Cidade</th>
+                            <th>Estado</th>
+                            <th>Data</th>
                         </tr>
                     </thead>
 
 
                     <tbody>
-                        @foreach($clientes as $cliente)
+
+                        @foreach($leads as $lead)
                             <tr>
-                                <td>{{$cliente->nome}}</td>
-                                <td>{{$cliente->email}}</td>
-                                <td>{{$cliente->telefone}}</td>
-                                <td>{{$cliente->nome_proprietario}}</td>
-                                <td>
-                                    <a name="" id="" class="btn btn-warning" href="{{route('painel.cliente.editar', ['cliente' => $cliente])}}" role="button">Editar</a>
-                                    <a class="btn btn-primary mx-1" href="{{route('painel.cliente.relatorio', ['cliente' => $cliente])}}">Relatório</a>
-                                    <a class="btn btn-primary mx-1" href="{{route('painel.cliente.leads', ['cliente' => $cliente])}}">Leads</a>
-                                </td>
+                                <td>{{$lead->formulario}}</td>
+                                <td>{{$lead->nome}}</td>
+                                <td>{{$lead->email}}</td>
+                                <td>{{$lead->celular}}</td>
+                                <td>{{$lead->ip_uf}}</td>
+                                <td>{{$lead->ip_cidade}}</td>
+                                <td>{{date("d/m/Y H:i:s", strtotime($lead->created_at))}}</td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
-
             </div>
         </div>
     </div> <!-- end col -->

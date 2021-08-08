@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use App\Models\Usuario;
+use App\Models\Lead;
 
 class PainelController extends Controller
 {
@@ -47,5 +48,10 @@ class PainelController extends Controller
         Log::channel('acessos')->info('<b>SAIDA</b>: O usuario <b>' . session()->get("usuario")["usuario"] . '</b> saiu do sistema.');
         session()->forget("usuario");
         return redirect()->route("painel.login");
+    }
+
+    public function leads(){
+        $leads = Lead::all();
+        return view("painel.leads.consultar", ["leads" => $leads]);
     }
 }
