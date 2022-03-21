@@ -41,14 +41,15 @@ class Calendario extends Component
         if($demanda->completo){
             $demanda->completo = false;
             $demanda->completo_por = null;
+            \Log::channel('demandas')->info("[".config("globals.tipo_demandas")[$demanda->tipo]."] " . "O usuario <b>" . session()->get("usuario")["nome"] . "</b> marcou como incompleta a demanda <b>$demanda->titulo</b> do dia <b>" . date("d/m/Y", strtotime($demanda->data)) . "</b>");
             $this->dispatchBrowserEvent('notificaToastr', ['tipo' => 'success', 'mensagem' => 'Demanda marcada como incompleta.']);
         }else{
             $demanda->completo = true;
             $demanda->completo_por = session()->get("usuario")["id"];
+            \Log::channel('demandas')->info("[".config("globals.tipo_demandas")[$demanda->tipo]."] " . "O usuario <b>" . session()->get("usuario")["nome"] . "</b> marcou como completa a demanda <b>$demanda->titulo</b> do dia <b>" . date("d/m/Y", strtotime($demanda->data)) . "</b>");
             $this->dispatchBrowserEvent('notificaToastr', ['tipo' => 'success', 'mensagem' => 'Demanda completada com sucesso.']);
         }
         $demanda->save();
-        \Log::channel('demandas')->info("[".config("globals.tipo_demandas")[$demanda->tipo]."] " . "O usuario <b>" . session()->get("usuario")["nome"] . "</b> marcou como completa a demanda <b>$demanda->titulo</b> do dia <b>" . date("d/m/Y", strtotime($demanda->data)) . "</b>");
         $this->emit("atualizaCalendario");
     }
 

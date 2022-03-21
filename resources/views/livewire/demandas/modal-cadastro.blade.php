@@ -7,7 +7,7 @@
                     <input type="date" class="form-control" wire:model='data' readonly>
                 </div>
                 <div class="mb-3">
-                    <label for="" class="form-label">Título</label>
+                    <label for="" class="form-label">Setor</label>
                     <select class="form-control" wire:model='tipo' readonly>
                         <option value="0">Arte</option>
                         <option value="1">Postagem</option>
