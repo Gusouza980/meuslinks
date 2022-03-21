@@ -68,7 +68,9 @@ class Calendario extends Component
     public function render()
     {   
         $data = date("Y-m-d", strtotime($this->ano . "-" . $this->mes . "-01"));
+        \Log::debug($data);
         $demandas = Demanda::where([["tipo", "=", $this->tipo], ["data", ">=", date("Y-m", strtotime($data)) . "-01"], ["data", "<=", date("Y-m", strtotime($data)) . date("t", strtotime($data))]])->get();
+        \Log::debug($demandas->toJson());
         // dd(date("d-m", strtotime($data)));
         return view('livewire.calendario', ["data" => $data, "dias" => date("t", strtotime($data)), "demandas" => $demandas]);
     }
