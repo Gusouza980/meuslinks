@@ -16,7 +16,6 @@ class Calendario extends Component
     protected $listeners = ["atualizaCalendario" => '$refresh', "checkDemanda"];
 
     public function voltar(){
-        \Log::debug("FOI");
         $data = date("Y-m-d", strtotime($this->ano . "-" . $this->mes . "-01 - 1 months"));
         $this->mes = intval(date("m", strtotime($data)));
         $this->ano = intval(date("Y", strtotime($data)));
@@ -68,12 +67,7 @@ class Calendario extends Component
     public function render()
     {   
         $data = date("Y-m-d", strtotime($this->ano . "-" . $this->mes . "-01"));
-        \Log::debug($data);
-        $demandas = Demanda::where([["tipo", "=", $this->tipo], ["data", ">=", date("Y-m", strtotime($data)) . "-01"], ["data", "<=", date("Y-m", strtotime($data)) . date("t", strtotime($data))]])->get();
-        \Log::debug($this->tipo);
-        \Log::debug(date("Y-m", strtotime($data)));
-        \Log::debug(date("Y-m", strtotime($data)) . date("t", strtotime($data)));
-        // dd(date("d-m", strtotime($data)));
+        $demandas = Demanda::where([["tipo", "=", $this->tipo], ["data", ">=", date("Y-m", strtotime($data)) . "-01"], ["data", "<=", date("Y-m", strtotime($data)) . "-" . date("t", strtotime($data))]])->get();
         return view('livewire.calendario', ["data" => $data, "dias" => date("t", strtotime($data)), "demandas" => $demandas]);
     }
 }
