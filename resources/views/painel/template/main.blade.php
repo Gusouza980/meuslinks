@@ -24,7 +24,9 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
         <!-- App Css-->
         <link href="{{asset('admin/css/app.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />
         @toastr_css
+        @livewireStyles()
         @yield("styles")
+        @stack("styles")
     </head>
 
     <body data-sidebar="dark">
@@ -185,10 +187,20 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
         <script src="{{asset('admin/libs/node-waves/waves.min.js')}}"></script>
         @toastr_js
         @toastr_render
-
+        @livewireScripts()
         <!-- App js -->
         <script src="{{asset('admin/js/app.js')}}"></script>
+        <script>
+            window.addEventListener('notificaToastr', event => {
+                if (event.detail.tipo == 'success') {
+                    toastr.success(event.detail.mensagem);
+                } else if (event.detail.tipo == 'error') {
+                    toastr.error(event.detail.mensagem);
+                }
+            });
+        </script>
         @yield("scripts")
+        @stack("scripts")
     </body>
 
 </html>

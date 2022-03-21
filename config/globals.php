@@ -13,6 +13,10 @@ return [
         8 => "Tiktok",
         9 => "Email"
     ],
+    'tipo_demandas' => [
+        0 => "ARTES",
+        1 => "POSTAGENS"
+    ]
 ];
 
 ?>

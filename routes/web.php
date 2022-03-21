@@ -47,5 +47,5 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/sistema/clientes/leads/{cliente}', [\App\Http\Controllers\ClientesController::class, 'leads'])->name("painel.cliente.leads");
 
     // ROTA DE LOG
-    Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+    Route::get('/sistema/logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 });
