@@ -4,6 +4,8 @@ namespace App\Http\Livewire\Demandas;
 
 use Livewire\Component;
 use App\Models\Demanda;
+use App\Models\Notificacao;
+use App\Models\NotificacaoRecebimento;
 
 class ModalCadastro extends Component
 {
@@ -26,6 +28,23 @@ class ModalCadastro extends Component
         $demanda->data = $this->data;
         $demanda->tipo = $this->tipo;
         $demanda->save();
+
+        $notificacao = new Notificacao;
+        $notificacao->usuario_id = session()->get("usuario")["id"];
+        $notificacao->demanda_id = $demanda->id;
+        $notificacao->area = $demanda->tipo;
+        $notificacao->tipo = 0;
+        $notificacao->save();
+
+        foreach(\App\Models\Usuario::where("area", 0)->orWhere("area", $notificacao->area)->get() as $usuario){
+            if($usuario->id != session()->get("usuario")["id"]){
+                $notificacao_recebimento = new NotificacaoRecebimento;
+                $notificacao_recebimento->notificacao_id = $notificacao->id;
+                $notificacao_recebimento->usuario_id = $usuario->id;
+                $notificacao_recebimento->save();
+            }
+        }
+
         \Log::channel('demandas')->info("[".config("globals.tipo_demandas")[$demanda->tipo]."] " . "O usuario <b>" . session()->get("usuario")["nome"] . "</b> cadastrou a demanda <b>$demanda->titulo</b> pro dia <b>" . date("d/m/Y", strtotime($demanda->data)) . "</b>");
         $this->emit("atualizaCalendario");
         $this->dispatchBrowserEvent("fechaModalCadastro");

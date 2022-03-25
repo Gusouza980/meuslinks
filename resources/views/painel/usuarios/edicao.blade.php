@@ -44,6 +44,14 @@
                                 id="senha">
                                 <small>Deixe em branco caso não va alterar</small>
                         </div>
+                        <div class="form-group col-12 col-lg-3">
+                            <label for="area">Área</label>
+                            <select class="form-control" name="area" id="area" required>
+                                <option value="2" @if($usuario->area === 0) selected @endif>Todas</option>
+                                <option value="0" @if($usuario->area === 1) selected @endif>Artes</option>
+                                <option value="1" @if($usuario->area === 2) selected @endif>Postagens</option>
+                            </select>
+                        </div>
                     </div>
                     <hr>
                     <div class="row">

@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" wire:poll.5000ms>
     <div class="d-flex flex-row justify-content-between align-items-center mb-4">
         <div class="">
             <a name="" id="" class="btn @if($tipo === 0) btn-primary @else btn-light @endif" role="button" wire:click="trocaTipo(0)">Artes</a>

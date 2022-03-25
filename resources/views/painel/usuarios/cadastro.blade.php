@@ -43,6 +43,14 @@
                             <input type="password" class="form-control" name="senha"
                                 id="senha" required>
                         </div>
+                        <div class="form-group col-12 col-lg-3">
+                            <label for="area">Área</label>
+                            <select class="form-control" name="area" id="area" required>
+                                <option value="2">Todas</option>
+                                <option value="0">Artes</option>
+                                <option value="1">Postagens</option>
+                            </select>
+                        </div>
                     </div>       
                     <hr>
                     <div class="row">

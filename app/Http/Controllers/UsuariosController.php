@@ -29,6 +29,7 @@ class UsuariosController extends Controller
         $usuario->nome = $request->nome;
         $usuario->email = $request->email;
         $usuario->usuario = $request->usuario;
+        $usuario->area = $request->area;
         $usuario->senha = Hash::make($request->senha);
         $usuario->save();
 
@@ -49,6 +50,7 @@ class UsuariosController extends Controller
         $usuario->nome = $request->nome;
         $usuario->email = $request->email;
         $usuario->usuario = $request->usuario;
+        $usuario->area = $request->area;
         if($request->senha){
             $usuario->senha = Hash::make($request->senha);
         }
