@@ -15,7 +15,8 @@ return [
     ],
     'tipo_demandas' => [
         0 => "ARTES",
-        1 => "POSTAGENS"
+        1 => "POSTAGENS",
+        2 => "ADMINISTRATIVO"
     ]
 ];
 

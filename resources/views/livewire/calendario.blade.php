@@ -3,6 +3,7 @@
         <div class="">
             <a name="" id="" class="btn @if($tipo === 0) btn-primary @else btn-light @endif" role="button" wire:click="trocaTipo(0)">Artes</a>
             <a name="" id="" class="btn @if($tipo === 1) btn-primary @else btn-light @endif ml-3" role="button" wire:click="trocaTipo(1)">Postagens</a>
+            <a name="" id="" class="btn @if($tipo === 2) btn-primary @else btn-light @endif ml-3" role="button" wire:click="trocaTipo(2)">Administrativo</a>
         </div>
         <div class="d-flex flex-row justify-content-end">
             <div wire:click='voltar'>
