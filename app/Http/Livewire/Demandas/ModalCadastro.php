@@ -15,6 +15,15 @@ class ModalCadastro extends Component
 
     protected $listeners = ["carregaCadastro"];
 
+    protected $rules = [
+        "titulo" => "required|max:100"
+    ];
+
+    protected $messages = [
+        "titulo.required" => "O campo título é obrigatório",
+        "titulo.max" => "Máximo de 100 caracteres"
+    ];
+
     public function carregaCadastro($data, $tipo){
         $this->data = $data;
         $this->tipo = $tipo;
@@ -23,6 +32,7 @@ class ModalCadastro extends Component
     }
 
     public function salvar(){
+        $this->validate();
         $demanda = new Demanda;
         $demanda->titulo = $this->titulo;
         $demanda->data = $this->data;

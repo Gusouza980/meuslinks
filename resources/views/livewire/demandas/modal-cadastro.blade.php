@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
-            <form action="">
+            <form wire:submit.prevent='salvar' wire:keydown.escape='salvar'>
                 <div class="mb-3">
                     <label for="" class="form-label">Data</label>
                     <input type="date" class="form-control" wire:model='data' readonly>
@@ -15,7 +15,8 @@
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Título</label>
-                    <input type="text" class="form-control" wire:model='titulo' maxlength="100">
+                    <input type="text" class="form-control" wire:model='titulo' maxlength="100" required>
+                    @error('titulo') <small style="color: red;">{{ $message }}</small> @enderror
                 </div>
                 <div class="mb-3">
                     <a name="" id="" class="btn btn-primary" role="button" wire:click="salvar">Salvar</a>
