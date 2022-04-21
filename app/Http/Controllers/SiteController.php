@@ -7,6 +7,7 @@ use App\Models\Cliente;
 use App\Models\Visitante;
 use App\Models\Acesso;
 use App\Models\Click;
+use App\Models\Link;
 
 class SiteController extends Controller
 {
@@ -75,5 +76,25 @@ class SiteController extends Controller
         }
         $click->save();
         return response()->json("sucesso");
+    }
+
+    public function link($codigo){
+        $link = Link::where("codigo", $codigo)->first();
+        if(!$link){
+            return redirect()->route("site.index");
+        }
+        $link->acessos += 1;
+        $link->save();
+        return redirect($link->link);
+    }
+
+    public function link_slug($slug, $codigo){
+        $link = Link::where("codigo", $codigo)->first();
+        if(!$link){
+            return redirect()->route("site.index");
+        }
+        $link->acessos += 1;
+        $link->save();
+        return redirect($link->link);
     }
 }

@@ -42,6 +42,7 @@
                                     <a name="" id="" class="btn btn-warning" href="{{route('painel.cliente.editar', ['cliente' => $cliente])}}" role="button">Editar</a>
                                     <a class="btn btn-primary mx-1" href="{{route('painel.cliente.relatorio', ['cliente' => $cliente])}}">Relatório</a>
                                     <a class="btn btn-primary mx-1" href="{{route('painel.cliente.leads', ['cliente' => $cliente])}}">Leads</a>
+                                    <a class="btn btn-primary mx-1" href="{{route('painel.cliente.links', ['cliente' => $cliente])}}">Links</a>
                                 </td>
                             </tr>
                         @endforeach
