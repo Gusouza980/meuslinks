@@ -164,6 +164,8 @@ class ClientesController extends Controller
         $cliente->login_tiktok = $request->login_tiktok;
         $cliente->senha_tiktok = $request->senha_tiktok;
 
+        $cliente->tag_facebook_pixel = $request->tag_facebook_pixel;
+
         if($request->file("logo")){
             Storage::delete($cliente->logo);
             $cliente->logo = $request->file('logo')->store(

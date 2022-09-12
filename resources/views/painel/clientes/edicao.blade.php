@@ -562,6 +562,13 @@
                                         <input class="form-check-input getree-check" type="checkbox" name="tiktok_ativo" @if($cliente->tiktok_ativo) checked @endif> 
                                     </div>
                                 </div>
+
+                                <div class="col-lg-12">
+                                    <div class="mb-3">
+                                        <label for="tag_facebook_pixel" class="form-label">Tag - Facebook Pixel</label>
+                                        <textarea type="text" class="form-control" name="tag_facebook_pixel" id="tag_facebook_pixel" rows="3">{!! $cliente->tag_facebook_pixel !!}</textarea>
+                                    </div>
+                                </div>
                                 
                             </div>
                             <hr>
@@ -779,7 +786,7 @@
                     }
                 });  
                 $.ajax({
-                    url: '/sistema/clientes/rede/' + id,
+                    url: '/sistema/cliente/rede/' + id,
                     type: 'POST',
                     data: {
                         name: name

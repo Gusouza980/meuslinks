@@ -119,9 +119,10 @@
         }
     </style>
 </head>
-<?php
-?>
 <body>
+    @if($cliente->tag_facebook_pixel)
+        {!! $cliente->tag_facebook_pixel !!}
+    @endif
     <div class="container-fluid mt-5">
         <div class="row justify-content-center">
             <div class="col-12 col-xl-4">
