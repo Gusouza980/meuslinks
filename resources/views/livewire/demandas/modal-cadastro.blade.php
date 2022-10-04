@@ -9,8 +9,9 @@
                 <div class="mb-3">
                     <label for="" class="form-label">Setor</label>
                     <select class="form-control" wire:model='tipo' readonly>
-                        <option value="0">Arte</option>
-                        <option value="1">Postagem</option>
+                        @foreach(config("globals.tipo_demandas") as $key => $tipo_demanda)
+                            <option value="{{ $key }}">{{ $tipo_demanda }}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="mb-3">
